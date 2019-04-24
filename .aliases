@@ -1,0 +1,24 @@
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+	colorflag="--color"
+else # OS X `ls`
+	colorflag="-G"
+fi
+
+# Fast shortcuts
+alias g="git
+alias h="history"
+alias gc="git commit"
+alias d="docker"
+alias dc="docker-compose"
+
+# LS
+alias ls="ls ${colorflag}"
+alias l="ls -lhF ${colorflag}"
+alias la="ls -lahF ${colorflag}"
+
+# URL-encode strings
+alias urlencode="python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"
+
+# Safe Copy and Move
+alias cp="cp -i"
+alias mv="mv -i"

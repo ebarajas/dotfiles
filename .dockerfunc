@@ -1,0 +1,109 @@
+#####
+# Helper Functions
+#####
+
+dcleanup(){
+	docker rm $(docker ps -aq 2>/dev/null)
+}
+
+#####
+# Container Aliases
+####
+
+ansible(){
+        docker run -it --rm \
+                -v "$(pwd):/root/workdir" \
+                -v "${HOME}/.ssh:/root/.ssh" \
+		-v "${HOME}/.aws:/root/.aws:ro" \
+                -w "/root/workdir" \
+		--name ansible \
+                ansible:latest "$@"
+}
+
+ansible-playbook(){
+	docker run -it --rm \
+		-v "$(pwd):/root/workdir" \
+		-v "${HOME}/.ssh:/root/.ssh:ro" \
+		-v "${HOME}/.aws:/root/.aws:ro" \
+		-v "${HOME}/.ansible_vault:/root/.ansible_vault" \
+		-v /var/run/docker.sock:/var/run/docker.sock \
+		-w "/root/workdir" \
+		-e "ANSIBLE_HOST_KEY_CHECKING" \
+		-e "AWS_ACCESS_KEY_ID" \
+		-e "AWS_SECRET_ACCESS_KEY" \
+		--entrypoint "ansible-playbook" \
+		--name ansible \
+		ansible:latest "$@"
+}
+
+
+ansible-vault(){
+	docker run -it --rm \
+		-v "$(pwd):/root/workdir" \
+		-v "${HOME}/.ssh:/root/.ssh:ro" \
+		-v "${HOME}/.aws:/root/.aws:ro" \
+		-w "/root/workdir" \
+		--entrypoint "ansible-vault" \
+		--name ansible \
+		ansible:latest "$@"
+}
+
+
+
+aws() {
+	docker run -it --rm \
+		-v "${HOME}/.aws:/root/.aws" \
+		-e "AWS_PROFILE" \
+		-e "AWS_DEFAULT_REGION" \
+		--log-driver none \
+		--name aws \
+		awscli:latest "$@"
+}
+
+jfrog() {
+	docker run -it --rm \
+		-v "${HOME}/.jfrog:/root/.jfrog"
+		--name jfrog \
+		docker.bintray.io/jfrog/jfrog-cli-go:latest jfrog -v
+}
+
+mvn() {
+	docker run -it --rm \
+		-v "$(pwd):/root/workdir" \
+		-v "${HOME}/.m2/:/root/.m2" \
+		-w "/root/workdir" \
+		--env ARTIFACTORY_ACCESS_TOKEN \
+		--entrypoint "mvn" \
+		--name maven \
+		talroo-docker.jfrog.io/maven:latest "$@"
+}
+
+npm() {
+	docker run -it --rm \
+		-v "$(pwd):/root/workdir" \
+		-w "/root/workdir" \
+		--name npm \
+		--entrypoint "npm" \
+		node:latest "$@"
+}
+
+npx() {
+	docker run -it --rm \
+		-v "$(pwd):/root/workdir" \
+		-w "/root/workdir" \
+		--name npx \
+		--entrypoint "npx" \
+		node:latest "$@"
+} 	
+
+
+yarn() {
+	docker run -it --rm \
+		-v "$(pwd):/root/workdir" \
+		-w "/root/workdir" \
+		-p 3000:3000 \
+		--name yarn \
+		--entrypoint "yarn" \
+		node:latest "$@"
+} 	
+
