@@ -1,4 +1,3 @@
-tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 
 brew "git"
@@ -8,6 +7,7 @@ brew "tmux"
 brew "mas"
 brew "coreutils"
 brew "moreutils"
+brew "tree-sitter"
 brew "watch"
 brew "wget"
 brew "xz"
@@ -36,4 +36,3 @@ cask "font-fira-code-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
 
 mas "Amphetamine", id: 937984704
-mas "Hand Mirror", id: 1502839586
