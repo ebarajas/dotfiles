@@ -19,6 +19,10 @@ export LESS="-R --mouse"
 
 alias ls="ls -alhG"
 
+# Setting editor to vim also sets the vim keybindings in zsh
+# This sets them back to emacs bindings
+bindkey -e
+
 # Prefer nvim over vim if installed
 if [[ -x $(which nvim) ]]; then
   alias vim="nvim"

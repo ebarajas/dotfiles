@@ -12,3 +12,11 @@ unset conf
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export PATH=/Users/ebarajas/figma/figma/devex/bins:$PATH
+
+export PRESERVE_HUNKS=1
+
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/config.d/00_p10k.zsh.
+[[ ! -f ~/.config/zsh/config.d/00_p10k.zsh ]] || source ~/.config/zsh/config.d/00_p10k.zsh
+eval "$(rbenv init -)"
+export RACK_ENV=development

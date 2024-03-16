@@ -8,10 +8,27 @@ if wezterm.config_builder then
     config = wezterm.config_builder()
 end
 
+config.scrollback_lines = 1000000
+config.enable_scroll_bar = true
+
 config.color_scheme = 'Firewatch'
 
 -- Set CTRL+<SPACE> as leader
 config.leader = { key = ' ', mods = 'CTRL' }
+
+config.mouse_bindings = {
+    -- Allow for CTRL+Click or CMD+Click on Links
+    {
+        event = { Up = {streak = 1, button = 'Left' } },
+        mods = 'CTRL',
+        action = wezterm.action.OpenLinkAtMouseCursor,
+    },
+    {
+        event = { Up = {streak = 1, button = 'Left' } },
+        mods = 'CMD',
+        action = wezterm.action.OpenLinkAtMouseCursor,
+    }
+}
 
 config.keys = {
     {

@@ -9,6 +9,9 @@
   "neodev.nvim": { "branch": "main", "commit": "58b1c0740e8ad79ce71e2649a449bb90536435cf" },
   "nvim-cmp": { "branch": "main", "commit": "5dce1b778b85c717f6614e3f4da45e9f19f54435" },
   "nvim-lspconfig": { "branch": "master", "commit": "68b23c06132cb1ef8d5690111c112388fbcf1c30" },
+  "nvim-treesitter": { "branch": "master", "commit": "d96c216c54cc2d48d3c66ba7f0fc3c7c5b71b3b1" },
+  "nvim-treesitter-textobjects": { "branch": "master", "commit": "bd103502252027434ec42f628d2dbf54821d4ce6" },
   "plenary.nvim": { "branch": "master", "commit": "9ce85b0f7dcfe5358c0be937ad23e456907d410b" },
-  "telescope.nvim": { "branch": "master", "commit": "54930e1abfc94409e1bb9266e752ef8379008592" }
+  "telescope.nvim": { "branch": "master", "commit": "54930e1abfc94409e1bb9266e752ef8379008592" },
+  "which-key.nvim": { "branch": "main", "commit": "7ccf476ebe0445a741b64e36c78a682c1c6118b7" }
 }

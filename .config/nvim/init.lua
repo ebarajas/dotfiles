@@ -17,11 +17,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
-require("lsp")
 require("telescope")
-
--- Shortcut for reloading config
-vim.keymap.set('n', '<leader>so', ':source ~/.config/nvim/init.lua<CR>', { silent = true })
+require("lsp")
 
 vim.opt.belloff = "all" -- no bells!!!!!
 
