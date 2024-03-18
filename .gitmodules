@@ -1,3 +1,4 @@
-[submodule "/Users/ebarajas/.config/zsh/powerlevel10k"]
-	path = /Users/ebarajas/.config/zsh/powerlevel10k
+[submodule ".config/zsh/powerlevel10k"]
+	path = .config/zsh/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
+
