@@ -18,5 +18,3 @@ export PRESERVE_HUNKS=1
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/config.d/00_p10k.zsh.
 [[ ! -f ~/.config/zsh/config.d/00_p10k.zsh ]] || source ~/.config/zsh/config.d/00_p10k.zsh
-eval "$(rbenv init -)"
-export RACK_ENV=development
