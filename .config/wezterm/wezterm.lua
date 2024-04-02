@@ -8,6 +8,11 @@ if wezterm.config_builder then
     config = wezterm.config_builder()
 end
 
+-- Use custom patched font for powerlevel10k zsh theme
+-- Links to Fonts are here:
+-- https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#manual-font-installation
+config.font = wezterm.font("MesloLGS NF")
+
 config.scrollback_lines = 1000000
 config.enable_scroll_bar = true
 
