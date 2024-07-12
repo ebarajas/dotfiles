@@ -53,3 +53,4 @@ autocmd("ModeChanged", {
 })
 
 require('plugins')
+require('keybindings')
