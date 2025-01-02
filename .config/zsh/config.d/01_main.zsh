@@ -10,6 +10,7 @@ setopt inc_append_history	    # Add lines to history incrementally rather than w
 setopt hist_ignore_dups		    # Don't add lines to history if they're dupes of the previous line 
 setopt hist_expire_dups_first	# Remove duplicate lines first when trimming history 
 
+export HISTFILE=~/.zsh_history  # Manually set HISTFILE, some linux distributions don't set it by default 
 export HISTSIZE=1000000000
 export SAVEHIST=$HISTSIZE
 
