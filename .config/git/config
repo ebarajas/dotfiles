@@ -1,0 +1,38 @@
+[push]
+	autoSetupRemote = true
+
+# Always use ssh when connecting to remotes
+# (also makes it easier to clone private repos using the URL)
+[url "ssh://git@github.com:"]
+	insteadOf = https://github.com
+
+[url "ssh://git@gitlab.com:"]
+	insteadOf = https://gitlab.com/
+
+[user]
+	name = Ernesto Barajas
+	email = ebarajas1994@gmail.com 
+
+[alias]
+  ls-untracked = ls-files --others --exclude-standard
+	co = checkout
+  cs = "!git stash list | fzf -0 --preview 'git show --pretty=oneline --color=always --patch \"$(echo {} | cut -d: -f1)\"' | cut -d: -f1 | xargs -r git stash pop"
+
+[core]
+	excludesfile = /Users/ebarajas/.gitignore
+  pager = delta
+
+[delta]
+    navigate = true
+
+[interactive]
+    diffFilter = delta --color-only
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+
+[maintenance]
+	repo = /Users/ebarajas/figma/figma
