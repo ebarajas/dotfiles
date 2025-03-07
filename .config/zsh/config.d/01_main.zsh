@@ -31,3 +31,8 @@ bindkey -e
 if [[ -x $(which nvim) ]]; then
   alias vim="nvim"
 fi
+
+# Enable zsh-vi-mode plugin
+ZVM_INIT_MODE=sourcing
+source $HOME/.config/zsh/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
