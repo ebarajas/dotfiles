@@ -39,8 +39,6 @@ cask "visual-studio-code"
 cask "notion"
 
 cask "raycast" 
-cask "hammerspoon" 
-cask "logitech-options" 
 
 cask "font-fira-code-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
