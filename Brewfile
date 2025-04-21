@@ -1,5 +1,3 @@
-tap "homebrew/cask-fonts"
-
 brew "coreutils"
 brew "fd"
 brew "fzf"
@@ -15,8 +13,6 @@ brew "wget"
 brew "xz"
 brew "zsh"        # Install a newer version of ZSH than the default 
 
-brew "solargraph" # Ruby LSP
-
 cask "spotify"
 
 # These are sometimes managed by IT, so check if they're already installed
@@ -29,10 +25,9 @@ cask "docker"
 cask "visual-studio-code"
 cask "notion"
 
-# MacOS only Casks
-cask "raycast" if OS.mac?
-cask "hammerspoon" if OS.mac?
-cask "logitech-options" if OS.mac?
+cask "raycast" 
+cask "hammerspoon" 
+cask "logitech-options" 
 
 cask "font-fira-code-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
