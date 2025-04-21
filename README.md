@@ -16,7 +16,15 @@ Inspired by blog post at https://www.atlassian.com/git/tutorials/dotfiles
 * Update submodules
   * `config submodule init`
   * `config submodule update` 
-* Install Homebrew (on Macs)
+* Hide untracked files
+  * `config config --local status.showUntrackedFiles no`
+
+* Install Homebrew
   * `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
-* Run brew bundle to install packages
+* Run brew bundle
   * `cd $HOME && /opt/homebrew/bin/brew bundle`
+
+## TODOs
+* Figure out cross-platform package management (macOS & Linux)
+  * Nix
+  * Ansible?
