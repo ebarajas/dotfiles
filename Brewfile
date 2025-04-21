@@ -1,3 +1,10 @@
+def is_personal_machine?
+  # Environment variable needs to have a `HOMEBREW_*` prefix
+  # to get passed to `brew` commands
+  env_val = ENV["HOMEBREW_IS_PERSONAL_MACHINE"]&.downcase&.slice(0)
+  ["1", "y", "t"].include?(env_val)
+end
+
 brew "coreutils"
 brew "fd"
 brew "fzf"
@@ -12,6 +19,12 @@ brew "watch"
 brew "wget"
 brew "xz"
 brew "zsh"        # Install a newer version of ZSH than the default 
+
+if is_personal_machine?
+  brew "syncthing"
+else
+  puts "Skipping personal machine packages"
+end
 
 cask "spotify"
 
