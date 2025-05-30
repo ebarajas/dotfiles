@@ -81,6 +81,22 @@ config.keys = {
 		action = action.ActivatePaneDirection("Right"),
 	},
 	{
+		key = "k",
+		mods = "CMD",
+		action = action.Multiple({
+			action.ClearScrollback("ScrollbackAndViewport"),
+			action.SendKey({ key = "L", mods = "CTRL" }), -- Send Ctrl+L to ask the shell to redraw the prompt
+		}),
+	},
+	{
+		key = "k",
+		mods = "CTRL|SHIFT",
+		action = action.Multiple({
+			action.ClearScrollback("ScrollbackAndViewport"),
+			action.SendKey({ key = "L", mods = "CTRL" }),
+		}),
+	},
+	{
 		key = "r",
 		mods = "LEADER",
 		action = action.ActivateKeyTable({
