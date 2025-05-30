@@ -26,3 +26,8 @@ function gcr() {
     print -s "git checkout $selected"
     git checkout $selected
 }
+
+# Removes any untracked RBI files in the current git repository
+function cleanuprbi() {
+  git ls-files --others --exclude-standard | grep ".rbi" | xargs rm -v 
+}
