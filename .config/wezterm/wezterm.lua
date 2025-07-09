@@ -16,10 +16,7 @@ wezterm.on("update-right-status", function(window, pane)
 	window:set_right_status(name or "")
 end)
 
--- Use custom patched font for powerlevel10k zsh theme
--- Links to Fonts are here:
--- https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#manual-font-installation
-config.font = wezterm.font("JetBrainsMono NF")
+config.font = wezterm.font_with_fallback({ "Berkeley Mono", "SF Mono" })
 
 config.scrollback_lines = 1000000
 config.enable_scroll_bar = true
