@@ -102,6 +102,8 @@ config.keys = {
 			timeout_milliseconds = 1000,
 		}),
 	},
+	-- Support Shift+Enter in claude code
+	{ key = "Enter", mods = "SHIFT", action = wezterm.action({ SendString = "\x1b\r" }) },
 }
 
 config.key_tables = {
