@@ -16,7 +16,13 @@ wezterm.on("update-right-status", function(window, pane)
 	window:set_right_status(name or "")
 end)
 
-config.font = wezterm.font_with_fallback({ "Berkeley Mono", "SF Mono" })
+config.font = wezterm.font_with_fallback({ 
+	"Berkeley Mono", 
+	"SF Mono", 
+	"Menlo",
+	"DejaVu Sans Mono",
+	"Courier New",
+ })
 
 config.scrollback_lines = 1000000
 config.enable_scroll_bar = true
