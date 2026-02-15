@@ -21,6 +21,8 @@ for conf in "$HOME/.config/zsh/config.d/"*.zsh; do
 done
 
 unset conf
-eval "$(rbenv init -)"
+if command -v rbenv &> /dev/null; then
+	eval "$(rbenv init -)"
+fi
 export RACK_ENV=development
 export AWS_CONFIG_FILE="$HOME/figma/figma/config/aws/sso_config"
