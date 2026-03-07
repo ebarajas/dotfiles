@@ -1,0 +1,32 @@
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git status)",
+      "Bash(echo *)",
+      "Bash(mkdir *)",
+      "Bash(find *)",
+      "Bash(grep *)",
+      "Bash(bundle exec srb tc)",
+      "Bash(ls *)",
+      "Bash(wc *)",
+      "Fetch(*)",
+      "Read(*)",
+      "Search(*)",
+      "WebSearch(*)",
+      "mcp__buildkite__*"
+    ],
+    "defaultMode": "plan",
+    "disableBypassPermissionsMode": "disable"
+  },
+  "model": "opus[1m]",
+  "statusLine": {
+    "type": "command",
+    "command": "input=$(cat); model=$(echo \"$input\" | jq -r '.model.display_name // .model.id'); cwd=$(echo \"$input\" | jq -r '.workspace.current_dir'); used=$(echo \"$input\" | jq -r '.context_window.used_percentage // 0'); duration_ms=$(echo \"$input\" | jq -r '.cost.total_duration_ms // 0'); api_duration_ms=$(echo \"$input\" | jq -r '.cost.total_api_duration_ms // 0'); total_cost=$(printf '%.2f' $(echo \"$input\" | jq -r '.cost.total_cost_usd // 0')); branch=$(cd \"$cwd\" 2>/dev/null && git -c core.useBuiltinFSMonitor=false rev-parse --abbrev-ref HEAD 2>/dev/null); duration=$((duration_ms / 1000)); hours=$((duration / 3600)); minutes=$(((duration % 3600) / 60)); seconds=$((duration % 60)); if [ $hours -gt 0 ]; then session_time=\"${hours}h ${minutes}m\"; elif [ $minutes -gt 0 ]; then session_time=\"${minutes}m ${seconds}s\"; else session_time=\"${seconds}s\"; fi; api_dur=$((api_duration_ms / 1000)); api_h=$((api_dur / 3600)); api_m=$(((api_dur % 3600) / 60)); api_s=$((api_dur % 60)); if [ $api_h -gt 0 ]; then api_time=\"${api_h}h ${api_m}m\"; elif [ $api_m -gt 0 ]; then api_time=\"${api_m}m ${api_s}s\"; else api_time=\"${api_s}s\"; fi; printf \"%s\" \"$model\"; [ -n \"$branch\" ] && printf \" [%s]\" \"$branch\"; printf \"\\n\"; if (( $(echo \"$used < 70\" | bc -l 2>/dev/null || echo 0) )); then color=\"\\033[32m\"; elif (( $(echo \"$used < 90\" | bc -l 2>/dev/null || echo 0) )); then color=\"\\033[33m\"; else color=\"\\033[31m\"; fi; reset=\"\\033[0m\"; bar_width=20; filled=$(printf \"%.0f\" $(echo \"$used * $bar_width / 100\" | bc -l 2>/dev/null || echo 0)); [ $filled -lt 0 ] && filled=0; [ $filled -gt $bar_width ] && filled=$bar_width; bar=\"[\"; for ((i=0; i<filled; i++)); do bar+=\"█\"; done; for ((i=filled; i<bar_width; i++)); do bar+=\"░\"; done; bar+=\"]\"; printf \"${color}%s %.1f%%${reset} | Cost: \\$%s | Time: %s | API: %s\\n\" \"$bar\" \"$used\" \"$total_cost\" \"$session_time\" \"$api_time\""
+  },
+  "alwaysThinkingEnabled": true
+}
