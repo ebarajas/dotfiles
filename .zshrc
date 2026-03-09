@@ -13,6 +13,7 @@ if [[ "$TERM_PROGRAM" != "vscode" ]]; then
   [[ ! -f ~/.config/zsh/p10k.zsh ]] || source ~/.config/zsh/p10k.zsh
 fi
 
+export PATH="$HOME/.local/bin:$PATH"
 export PATH=/Users/ebarajas/figma/figma/devex/bins:$PATH
 export PRESERVE_HUNKS=1
 
